@@ -35,7 +35,7 @@ rin_threshold <- 7.0
 
 # Filter specific tissues of your choice
 attphe_filtered = attphe %>%
-  filter(minor_tissue %in% c('Brain - Cortex', 'Lung', 'Muscle - Skeletal','Heart - Left Ventricle','Heart - Atrial Appendage', 'Skin - Not Sun Exposed (Suprapubic)', 'Skin - Sun Exposed (Lower leg)', 'Heart - AtrialAppendage', 'Heart - LeftVentricle')) 
+  filter(minor_tissue %in% c('Brain - Cortex', 'Lung'.......... #####PLEASE INSERT TISSUE OF YOUR CHOICE)) 
 
 ############################################ MODIFY COUNT DATA ########################################################
 # Load and filter count data
@@ -47,10 +47,7 @@ rownames(dat) <- gsub("\\.\\d+$", "", dat$Name)
 dat$Name <- NULL
 
 # Define genes of interest and match them in the dataset
-genes_of_interest <- c('ENSG00000198793', 'ENSG00000118689', 'ENSG00000179091', 'ENSG00000096717', 'ENSG00000171862', 
-                       'ENSG00000142082', 'ENSG00000133818', 'ENSG00000121691', 'ENSG00000017427', 'ENSG00000140443', 
-                       'ENSG00000141510', 'ENSG00000077463', 'ENSG00000130203', 'ENSG00000126458', 'ENSG00000142168', 
-                       'ENSG00000133116')
+genes_of_interest <- c('ENSG00000198793', .....#PLEASE INSERT GENE ID OF YOUR CHOICE)
 
 genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
 dat_filtered <- dat[rownames(dat) %in% genes_of_interest, , drop = FALSE]
