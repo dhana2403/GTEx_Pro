@@ -4,7 +4,7 @@ Visualizing gene expression in GTEx
 
 ## Project Overview
 
-This project encompasses the acquisition, preprocessing, normalization, batch correction, visualization, and organization of GTEx (Genotype-Tissue Expression) data. It provides a comprehensive pipeline for analyzing gene expression data from various tissues, facilitating downstream analysis and interpretation.
+This project contains the data acquisition, preprocessing, normalization, batch correction, visualization, and organization code for GTEx dataset. It provides a comprehensive pipeline for analyzing gene expression data from various tissues, facilitating downstream analysis and interpretation.
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ To run this project, you will need:
 
 Install required R packages (if not already installed):
 
-### Instructions for Use
+### Usage
 
 1.  ![Flowchart](GTex_Pro_pipeline.drawio.pdf)
 
@@ -52,6 +52,7 @@ Normalization
 Batch correction
 Visualization
 Organizing the data for further analysis
+
 The final results and plots will be saved in the results.../ directory.
 
 #### License
