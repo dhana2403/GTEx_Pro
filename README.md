@@ -33,11 +33,6 @@ To run this project, you will need:
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
-
 Install required R packages (if not already installed):
 
 ### Usage
@@ -61,11 +56,9 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ##### Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss potential changes or improvements.
+Contributions are welcome! 
+Please feel free to submit a Pull Request or open an Issue to discuss potential changes or improvements.
 Fork the repository.
-Create your feature branch (git checkout -b feature/AmazingFeature).
-Commit your changes (git commit -m 'Add some AmazingFeature').
-Push to the branch (git push origin feature/AmazingFeature).
 Open a Pull Request.
 
 ###### Acknowledgments
