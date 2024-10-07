@@ -42,7 +42,7 @@ Install required R packages (if not already installed):
 
 ### Instructions for Use
 
-1.  ![Flowchart](/Users/dhanalakshmijothi/Desktop/Github/GTex_Pro)
+1.  ![Flowchart](/Users/dhanalakshmijothi/Desktop/Github/GTex_Pro/GTex_Pro_pipeline.drawio.pdf)
 
 2. Follow the scripts in the src/ folder for detailed steps on:
 
