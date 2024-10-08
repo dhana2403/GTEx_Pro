@@ -64,5 +64,5 @@ Open a Pull Request.
 ###### Acknowledgments
 
 GTEx Project for providing the data.
-Partial preprocessing and normalization code was adapted from [mdonertas](https://github.com/mdonertas).
+Partial preprocessing code was adapted from [mdonertas](https://github.com/mdonertas).
 
