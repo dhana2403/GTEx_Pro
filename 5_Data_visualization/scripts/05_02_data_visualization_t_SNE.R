@@ -64,8 +64,8 @@ tissue_colors <- c(
   "Heart-LeftVentricle" = "blue",
   "Lung" = "orange",
   "Muscle-Skeletal" = "cyan",
-  "Skin-NotSunExposed" = "magenta",
-  "Skin-SunExposed" = "brown"
+  "Skin-NotSunExposed(Suprapubic)" = "magenta",
+  "Skin-SunExposed(Lowerleg)" = "brown"
 )
 
 # Create t-SNE plot for all tissues
