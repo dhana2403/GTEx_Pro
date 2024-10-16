@@ -37,7 +37,6 @@ qc_check_readcounts <- function(tis, outliers = NA) {
   print(paste("Normalized data saved for:", tis))
 }
 
-# List all tissues from the raw read counts directory
 alltis <- list.files('data/processed/expression/readcounts/')
 
 # Apply the QC function to all tissues
