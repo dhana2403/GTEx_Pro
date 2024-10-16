@@ -54,8 +54,7 @@ dat_tissues <- split(samplesx, attphe_filtered$minor_tissue)
 dat_tissues <- lapply(dat_tissues, function(samps) dat_filtered[, samps, drop = FALSE])
 names(dat_tissues) <- gsub(' ', '', names(dat_tissues))
 
-####################################### SAVE THE PROCESSED COUNT DATA AND METADATA #####################################
-
+# save the processed count and metadata 
 dir.create('data/processed/expression/readcounts/', recursive = TRUE, showWarnings = FALSE)
 sapply(names(dat_tissues), function(nm) saveRDS(dat_tissues[[nm]], file.path('data/processed/expression/readcounts/', paste0(nm, '.rds'))))
 saveRDS(attphe, './data/processed/attphe.rds')
