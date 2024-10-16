@@ -1,10 +1,9 @@
 ########################################### UMAP VISUALIZATION BY TISSUES ########################################################
 
-# Load required packages
 library(dplyr)
 library(ggplot2)
 library(edgeR)
-library(umap)  # Load the umap package for UMAP
+library(umap)  
 
 # Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/adjusted_sva"
@@ -18,10 +17,8 @@ combined_data <- list()
 # Loop through each tissue file
 for (tissue_file in tissue_files) {
   
-  # Extract the tissue name
   tissue_name <- gsub(".rds$", "", basename(tissue_file))
   
-  # Load the normalized read counts data from the .rds file
   normalized_counts <- readRDS(tissue_file)
   
   # Check for empty normalized counts
@@ -35,7 +32,6 @@ for (tissue_file in tissue_files) {
   # Convert to data frame and transpose for UMAP
   data_for_umap <- as.data.frame(t(normalized_counts))
   
-  # Add tissue name to the data frame
   data_for_umap$tissue <- tissue_name
   
   # Append to the combined data list
@@ -56,7 +52,6 @@ umap_result <- umap(as.matrix(combined_data_df[, -ncol(combined_data_df)]),
 umap_data <- as.data.frame(umap_result$layout)  # Use the $layout attribute
 umap_data$tissue <- combined_data_df$tissue
 
-# Define colors for tissues
 tissue_colors <- c(
   "Brain-Cortex" = "black",
   "Heart-AtrialAppendage" = "red",
@@ -87,10 +82,8 @@ umap_plot <- ggplot(umap_data, aes(x = V1, y = V2, color = tissue)) +
     legend.text = element_text(size = 10)
   )
 
-# Print UMAP plot to check if it renders
 print(umap_plot)
 
-# Create a directory to save the plots
 result_directory <- "results_after_sva_umap_all_tissues"
 dir.create(result_directory, recursive = TRUE, showWarnings = FALSE)
 
