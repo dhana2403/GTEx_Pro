@@ -1,6 +1,5 @@
 ################################## RUV BATCH CORRECTION ####################################
 
-# Load required packages
 library(RUVSeq)  # For RUVg
 library(dplyr)   # For data manipulation
 
@@ -65,10 +64,8 @@ process_tissue <- function(tissue_file, metadata) {
   # Define the file path to save the adjusted data
   result_file <- file.path("./data/processed/expression/adjusted_ruv", paste0(tissue_name, ".rds"))
   
-  # Save the adjusted data
   saveRDS(adjusted_expression_data, file = result_file)
   
-  # Print the dimensions for verification
   cat("Processed tissue:", tissue_name, "\n")
   cat("Dimensions of adjusted data:", dim(adjusted_expression_data), "\n")
 }
