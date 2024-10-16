@@ -5,13 +5,11 @@ library(dplyr)
 library(ggplot2)
 library(edgeR)
 
-# Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/adjusted_sva"
 
 # List all .rds files under the data path
 tissue_files <- list.files(path = data_path, pattern = "*.rds", full.names = TRUE)
 
-# Initialize a list to store combined data
 combined_data <- list()
 
 # Loop through each tissue file
@@ -63,7 +61,6 @@ tissue_colors <- c(
   "Skin-SunExposed(Lowerleg)" = "brown"
 )
 
-# Create PCA plot for all tissues
 pca_plot <- ggplot(pca_data, aes(x = PC1, y = PC2, color = tissue)) +
   geom_point(alpha = 0.7, size = 3) +
   scale_color_manual(values = tissue_colors) +
