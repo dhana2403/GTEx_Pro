@@ -3,7 +3,6 @@
 library(RUVSeq)  # For RUVg
 library(dplyr)   # For data manipulation
 
-# Create directory for adjusted data
 dir.create("./data/processed/expression/adjusted_ruv", recursive = TRUE)
 
 data_path <- "./data/processed/expression/readcounts_tmm/"
