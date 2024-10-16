@@ -31,10 +31,7 @@ for (tissue_file in tissue_files) {
   # Replace negative counts with a small positive value
   normalized_counts[normalized_counts < 0] <- 1e-9
   
-  # Convert to data frame and transpose for PCA
   data_for_pca <- as.data.frame(t(normalized_counts))
-  
-  # Add tissue name to the data frame
   data_for_pca$tissue <- tissue_name
   
   # Append to the combined data list
