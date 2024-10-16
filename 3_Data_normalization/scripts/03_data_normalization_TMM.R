@@ -23,7 +23,6 @@ qc_check_readcounts <- function(tis, outliers = NA) {
     calcNormFactors()
   readcounts_norm <- cpm(dge, normalized.lib.sizes = TRUE, log = FALSE)
   
-  # Save the normalized read counts in a single folder
   output_dir <- './data/processed/expression/readcounts_tmm/'
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
   saveRDS(readcounts_norm, paste0(output_dir, tis))
@@ -35,7 +34,6 @@ qc_check_readcounts <- function(tis, outliers = NA) {
     stringsAsFactors = FALSE
   )
   
-  # Print success message
   print(paste("Normalized data saved for:", tis))
 }
 
@@ -49,5 +47,4 @@ sapply(alltis, qc_check_readcounts)
 global_sample_counts_df <- do.call(rbind, sample_counts_list)
 write.csv(global_sample_counts_df, './data/processed/sample_counts.csv', row.names = FALSE)
 
-# Clean up the environment
 rm(list = ls())
