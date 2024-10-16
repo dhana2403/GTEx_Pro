@@ -1,6 +1,5 @@
 ################################################## DATA PREPROCESSING #################################################
 
-# Load required libraries
 library(data.table)
 library(tidyverse)
 
@@ -19,7 +18,6 @@ phe <- read_tsv('./data/metadata/GTEx_Analysis_v8_Annotations_SubjectPhenotypesD
                    labels = c('ventilator', 'fastdeath_violent', 'fastdeath_naturalcause', 'intermediatedeath', 'slowdeath'))
   )
 
-# Join attributes and phenotypes
 attphe <- full_join(att, phe, by = "subj_id")
 
 ############################################### ALL ATTRIBUTES AND PHENOTYPES ARE IN ATTPHE ##########################
@@ -48,24 +46,19 @@ dat$Name <- NULL
 
 # Define genes of interest and match them in the dataset
 genes_of_interest <- c('ENSG00000198793', .....#PLEASE INSERT GENE ID OF YOUR CHOICE)
-
 genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
 dat_filtered <- dat[rownames(dat) %in% genes_of_interest, , drop = FALSE]
 
-# Filter columns to include only the intersection of sample IDs
 samplesx <- intersect(attphe_filtered$sample_id, colnames(dat_filtered))
 dat_filtered <- dat_filtered[, samplesx, drop = FALSE]
 
 # Separate data by tissues
 dat_tissues <- split(samplesx, attphe_filtered$minor_tissue)
 dat_tissues <- lapply(dat_tissues, function(samps) dat_filtered[, samps, drop = FALSE])
-
-# Clean tissue names and assign names to list elements
 names(dat_tissues) <- gsub(' ', '', names(dat_tissues))
 
 ####################################### SAVE THE PROCESSED COUNT DATA AND METADATA #####################################
 
-# Create directory and save data
 dir.create('data/processed/expression/readcounts/', recursive = TRUE, showWarnings = FALSE)
 sapply(names(dat_tissues), function(nm) saveRDS(dat_tissues[[nm]], file.path('data/processed/expression/readcounts/', paste0(nm, '.rds'))))
 saveRDS(attphe, './data/processed/attphe.rds')
