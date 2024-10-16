@@ -5,7 +5,6 @@ library(ggplot2)
 library(edgeR)
 library(umap)  
 
-# Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/adjusted_sva"
 
 # List all .rds files under the data path
