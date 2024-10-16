@@ -64,7 +64,6 @@ process_tissue <- function(tissue_file, metadata) {
   # Define the file path to save the adjusted data
   result_file <- file.path("./data/processed/expression/adjusted_combat", paste0(tissue_name, '.rds'))
   
-  # Save the adjusted data
   saveRDS(adjusted_expression_data, file = result_file)
   
   cat("Processed tissue:", tissue_name, "\n")
