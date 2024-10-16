@@ -1,6 +1,5 @@
 ################################## SVA Batch Correction ####################################
 
-# Load required packages
 library(limma)  # For removeBatchEffect
 library(sva)    # For sva
 library(dplyr)  # For data manipulation
@@ -68,10 +67,7 @@ process_tissue <- function(tissue_file, metadata) {
   # Define the file path to save the adjusted data
   result_file <- file.path("./data/processed/expression/adjusted_sva", paste0(tissue_name, ".rds"))
   
-  # Save the adjusted data
   saveRDS(adjusted_expression_data, file = result_file)
-  
-  # Print the dimensions for verification
   cat("Processed tissue:", tissue_name, "\n")
   cat("Dimensions of adjusted data:", dim(adjusted_expression_data), "\n")
 }
