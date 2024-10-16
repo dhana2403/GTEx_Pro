@@ -87,6 +87,5 @@ print(umap_plot)
 result_directory <- "results_after_sva_umap_all_tissues"
 dir.create(result_directory, recursive = TRUE, showWarnings = FALSE)
 
-# Save the UMAP plot for all tissues
 ggsave(file.path(result_directory, "umap_plot_all_tissues_sva.pdf"), umap_plot, units = 'cm', width = 18, height = 18, useDingbats = FALSE)
 ggsave(filename = file.path(result_directory, "umap_plot_all_tissues_sva.png"), plot = umap_plot, units = "cm", width = 18, height = 18, dpi = 300)
