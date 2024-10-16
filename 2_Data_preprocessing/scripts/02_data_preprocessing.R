@@ -22,8 +22,7 @@ attphe <- full_join(att, phe, by = "subj_id")
 
 ############################################### ALL ATTRIBUTES AND PHENOTYPES ARE IN ATTPHE ##########################
 
-############################################## QUALITY CONTROL ######################################################
-
+##Quality control##
 ##Check for low RIN values 
 rin_threshold <- 7.0
      attphe <- attphe %>%
