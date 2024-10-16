@@ -1,7 +1,6 @@
 
 ########################################### PCA VISUALIZATION BY TISSUES ########################################################
 
-# Load required packages
 library(dplyr)
 library(ggplot2)
 library(edgeR)
@@ -57,7 +56,6 @@ pca_variance <- pca_result$sdev^2 / sum(pca_result$sdev^2) * 100
 pc1_var <- round(pca_variance[1], 2)
 pc2_var <- round(pca_variance[2], 2)
 
-# Define colors for tissues
 tissue_colors <- c(
   "Brain-Cortex" = "black",
   "Heart-AtrialAppendage" = "red",
@@ -88,13 +86,10 @@ pca_plot <- ggplot(pca_data, aes(x = PC1, y = PC2, color = tissue)) +
     legend.text = element_text(size = 10)
   )
 
-# Print PCA plot to check if it renders
 print(pca_plot)
 
-# Create a directory to save the plots
 result_directory <- "results_after_sva_pca_all_tissues"
 dir.create(result_directory, recursive = TRUE, showWarnings = FALSE)
 
-# Save the PCA plot for all tissues
 ggsave(file.path(result_directory, "pca_plot_all_tissues_sva.pdf"), pca_plot, units = 'cm', width = 18, height = 18, useDingbats = FALSE)
 ggsave(filename = file.path(result_directory, "pca_plot_all_tissues_sva.png"), plot = pca_plot, units = "cm", width = 18, height = 18, dpi = 300)
