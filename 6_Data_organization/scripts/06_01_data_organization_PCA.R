@@ -1,7 +1,6 @@
 
 ################################################# DATA ORGANIZATION #######################################
 
-# Load necessary libraries
 library(officer)
 library(magrittr)
 
@@ -9,7 +8,6 @@ library(magrittr)
 base_results_dir <- "./results_after_sva_pca_all_tissues"
 analysis_dir <- "./analysis_sva_pca_tissues"
 
-# Create the 'analysis' directory if it doesn't exist
 dir.create(analysis_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Define the path for the final PowerPoint presentation
@@ -25,7 +23,7 @@ image_files <- list.files(path = base_results_dir, pattern = "\\.png$", full.nam
 if (length(image_files) == 1) {
   image <- image_files[1]  # Select the single image
   
-  print(paste("Processing image:", image))  # Print processing message
+  print(paste("Processing image:", image)) 
   
   # Add the image to a new slide in the presentation
   ppt_all <- ppt_all %>%
@@ -36,8 +34,6 @@ if (length(image_files) == 1) {
   warning(paste("Expected one image file in directory:", base_results_dir, "but found", length(image_files)))
 }
 
-# Save the PowerPoint presentation
 print(ppt_all, target = output_pptx_all)
 
-# Confirmation message
 cat("PowerPoint presentation created successfully at:", output_pptx_all, "\n")
