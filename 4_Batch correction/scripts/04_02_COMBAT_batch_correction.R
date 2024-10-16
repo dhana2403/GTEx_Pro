@@ -11,7 +11,6 @@ data_path <- "./data/processed/expression/readcounts_tmm/"
 
 metadata_path <- "./data/processed/attphe.rds"
 
-# Load metadata
 metadata <- readRDS(metadata_path)
 
 # List all .rds files under the data path
