@@ -29,8 +29,6 @@ rin_threshold <- 7.0
      attphe <- attphe %>%
      filter(rin >= rin_threshold) 
 
-############################################# FILTER BASED ON EXPERIMENTAL REQUIREMENTS ###########################
-
 # Filter specific tissues of your choice
 attphe_filtered = attphe %>%
   filter(minor_tissue %in% c('Brain - Cortex', 'Lung'.......... #####PLEASE INSERT TISSUE OF YOUR CHOICE)) 
@@ -48,7 +46,6 @@ dat$Name <- NULL
 genes_of_interest <- c('ENSG00000198793', .....#PLEASE INSERT GENE ID OF YOUR CHOICE)
 genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
 dat_filtered <- dat[rownames(dat) %in% genes_of_interest, , drop = FALSE]
-
 samplesx <- intersect(attphe_filtered$sample_id, colnames(dat_filtered))
 dat_filtered <- dat_filtered[, samplesx, drop = FALSE]
 
