@@ -38,8 +38,8 @@ for (tissue_file in tissue_files) {
   data_zscore <- as.data.frame(t(scale(t(data_log10))))
   
   # Check for any NA values and remove rows/columns that are fully NA
-  data_zscore <- na.omit(data_zscore)  # Removes any rows with NA values
-  data_zscore <- data_zscore[, colSums(is.na(data_zscore)) == 0]  # Removes columns with NA values
+  data_zscore <- na.omit(data_zscore)  
+  data_zscore <- data_zscore[, colSums(is.na(data_zscore)) == 0]  
   
   data_zscore_reordered <- as.matrix(data_zscore)
 
@@ -50,19 +50,19 @@ for (tissue_file in tissue_files) {
   p <- Heatmap(
     data_zscore,
     name = "Expression",
-    cluster_rows = TRUE,           # Cluster rows (genes)
-    cluster_columns = FALSE,       # Do not cluster columns to preserve order
-    show_column_names = TRUE,      # Show column names
-    show_row_names = TRUE,         # Show row names
-    color = colorRampPalette(c("blue", "white", "red"))(50)  # Color gradient
+    cluster_rows = TRUE,           
+    cluster_columns = FALSE,       
+    show_column_names = TRUE,     
+    show_row_names = TRUE,         
+    color = colorRampPalette(c("blue", "white", "red"))(50)  
   )
   
   pdf(file.path(result_directory, paste0('heatmap_cluster_', tissue_name, '_vertical.pdf')), width = 20, height = 16)
-  draw(p)  # Use draw() to render the heatmap
+  draw(p) 
   dev.off()
   
   png(file.path(result_directory, paste0('heatmap_cluster_', tissue_name, '_vertical.png')), width = 6000, height = 8000, res = 300)
-  draw(p)  # Use draw() to render the heatmap
+  draw(p)  
   dev.off()
 }
 
