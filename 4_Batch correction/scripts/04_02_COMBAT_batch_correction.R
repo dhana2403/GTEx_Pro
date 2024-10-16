@@ -1,18 +1,14 @@
 
 ################################## COMBAT BATCH CORRECTION ####################################
 
-# Load required packages
 library(limma)  # For ComBat
 library(sva)
 library(dplyr)  # For data manipulation
 
-# Create directory for adjusted data
 dir.create("./data/processed/expression/adjusted_combat", recursive = TRUE)
 
-# Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/readcounts_tmm/"
 
-# Define the path to your metadata file
 metadata_path <- "./data/processed/attphe.rds"
 
 # Load metadata
@@ -71,7 +67,6 @@ process_tissue <- function(tissue_file, metadata) {
   # Save the adjusted data
   saveRDS(adjusted_expression_data, file = result_file)
   
-  # Print the dimensions for verification
   cat("Processed tissue:", tissue_name, "\n")
   cat("Dimensions of adjusted data:", dim(adjusted_expression_data), "\n")
 }
