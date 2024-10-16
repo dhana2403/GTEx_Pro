@@ -6,13 +6,10 @@ library(dplyr)   # For data manipulation
 # Create directory for adjusted data
 dir.create("./data/processed/expression/adjusted_ruv", recursive = TRUE)
 
-# Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/readcounts_tmm/"
 
-# Define the path to your metadata file
 metadata_path <- "./data/processed/attphe.rds"
 
-# Load metadata
 metadata <- readRDS(metadata_path)
 
 # List all .rds files under the data path
