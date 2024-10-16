@@ -1,12 +1,10 @@
 ########################################### t-SNE VISUALIZATION BY TISSUES ########################################################
 
-# Load required packages
 library(dplyr)
 library(ggplot2)
 library(edgeR)
-library(Rtsne)  # Load the Rtsne package for t-SNE
+library(Rtsne) 
 
-# Define the path to the folder containing normalized count values
 data_path <- "./data/processed/expression/adjusted_sva"
 
 # List all .rds files under the data path
@@ -21,7 +19,6 @@ for (tissue_file in tissue_files) {
   # Extract the tissue name
   tissue_name <- gsub(".rds$", "", basename(tissue_file))
   
-  # Load the normalized read counts data from the .rds file
   normalized_counts <- readRDS(tissue_file)
   
   # Check for empty normalized counts
@@ -35,7 +32,6 @@ for (tissue_file in tissue_files) {
   # Convert to data frame and transpose for t-SNE
   data_for_tsne <- as.data.frame(t(normalized_counts))
   
-  # Add tissue name to the data frame
   data_for_tsne$tissue <- tissue_name
   
   # Append to the combined data list
@@ -57,7 +53,6 @@ tsne_result <- Rtsne(as.matrix(combined_data_df[, -ncol(combined_data_df)]),
 tsne_data <- as.data.frame(tsne_result$Y)
 tsne_data$tissue <- combined_data_df$tissue
 
-# Define colors for tissues
 tissue_colors <- c(
   "Brain-Cortex" = "black",
   "Heart-AtrialAppendage" = "red",
@@ -88,13 +83,10 @@ tsne_plot <- ggplot(tsne_data, aes(x = V1, y = V2, color = tissue)) +
     legend.text = element_text(size = 10)
   )
 
-# Print t-SNE plot to check if it renders
 print(tsne_plot)
 
-# Create a directory to save the plots
 result_directory <- "results_after_sva_tsne_all_tissues"
 dir.create(result_directory, recursive = TRUE, showWarnings = FALSE)
 
-# Save the t-SNE plot for all tissues
 ggsave(file.path(result_directory, "tsne_plot_all_tissues_sva.pdf"), tsne_plot, units = 'cm', width = 18, height = 18, useDingbats = FALSE)
 ggsave(filename = file.path(result_directory, "tsne_plot_all_tissues_sva.png"), plot = tsne_plot, units = "cm", width = 18, height = 18, dpi = 300)
