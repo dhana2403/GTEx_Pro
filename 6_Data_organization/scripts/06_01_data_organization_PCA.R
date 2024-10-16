@@ -18,10 +18,6 @@ ppt_all <- read_pptx()
 
 # Get the single PNG file in the directory
 image_files <- list.files(path = base_results_dir, pattern = "\\.png$", full.names = TRUE)
-
-# Check if there is exactly one image file
-if (length(image_files) == 1) {
-  image <- image_files[1]  # Select the single image
   
   print(paste("Processing image:", image)) 
   
