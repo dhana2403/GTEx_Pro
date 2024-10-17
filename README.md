@@ -46,7 +46,7 @@ Install required R packages (if not already installed):
 Data acquisition 
 Data preprocessing
 Normalization
-Batch correction
+Batch correction (sva-recommended)
 Visualization
 Organizing the data for further analysis
 
