@@ -62,6 +62,7 @@ Contributions are welcome!
 Please feel free to submit a Pull Request or open an Issue to discuss potential changes or improvements.
 Fork the repository.
 Open a Pull Request.
+Offer your feedback
 
 ###### Acknowledgments
 
