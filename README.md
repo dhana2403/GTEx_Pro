@@ -52,6 +52,10 @@ Organizing the data for further analysis
 
 The final results and plots will be saved in the results.../ directory.
 
+## PCA Analysis
+
+You can view the 3D interactive PCA plot for all tissues [here](https://github.com/dhana2403/GTEx_Pro/blob/main/pca_plot_all_tissues_sva_3D.html).
+
 #### License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
