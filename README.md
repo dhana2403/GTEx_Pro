@@ -43,11 +43,11 @@ Install required R packages (if not already installed):
 
 2. Follow the order of the scripts detailed steps on:
 
-Data acquisition.R 
-Data preprocessing.R
-Normalization.R
-Batch correction.R (sva-recommended)
-Visualization.R
+Data acquisition
+[Data preprocessing](https://github.com/dhana2403/GTEx_Pro/blob/main/2_Data_preprocessing/scripts/02_data_preprocessing.R)
+Normalization
+Batch correction (sva-recommended)
+Visualization
 Organizing the data for further analysis
 
 The final results and plots will be saved in the results.../ directory.
