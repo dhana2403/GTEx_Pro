@@ -54,7 +54,7 @@ The final results and plots will be saved in the results.../ directory.
 
 ## PCA Analysis
 
-[View the 3D PCA plot](https://github.com/dhana2403/GTEx_Pro/blob/main/index.html)
+[View the 3D PCA plot](file:///Users/dhanalakshmijothi/Desktop/Github/GTex_Pro/test_pro/results_after_sva_pca_all_tissues/pca_plot_all_tissues_sva_3D.html)
 
 #### License
 
