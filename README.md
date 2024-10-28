@@ -46,8 +46,7 @@ Install required R packages (if not already installed):
 [Data acquisition](https://github.com/dhana2403/GTEx_Pro/blob/main/1_Data_acquisition/scripts/01_data_acquisition.R)
 [Data preprocessing](https://github.com/dhana2403/GTEx_Pro/blob/main/2_Data_preprocessing/scripts/02_data_preprocessing.R)
 [Normalization](https://github.com/dhana2403/GTEx_Pro/blob/main/3_Data_normalization/scripts/03_data_normalization_TMM.R)
-Batch correction (sva-recommended)
-Visualization
+[Batch correction (sva-recommended)](https://github.com/dhana2403/GTEx_Pro/blob/main/4_Batch%20correction/scripts/04_01_SVA_batch_correction.R)Visualization
 Organizing the data for further analysis
 
 The final results and plots will be saved in the results.../ directory.
