@@ -43,7 +43,7 @@ Install required R packages (if not already installed):
 
 2. Follow the order of the scripts detailed steps on:
 
-Data acquisition
+[Data acquisition](https://github.com/dhana2403/GTEx_Pro/blob/main/1_Data_acquisition/scripts/01_data_acquisition.R)
 [Data preprocessing](https://github.com/dhana2403/GTEx_Pro/blob/main/2_Data_preprocessing/scripts/02_data_preprocessing.R)
 Normalization
 Batch correction (sva-recommended)
