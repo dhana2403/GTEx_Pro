@@ -54,7 +54,7 @@ The final results and plots will be saved in the results.../ directory.
 
 ## PCA Analysis
 
-You can view the 3D interactive PCA plot for all tissues [here](https://github.com/dhana2403/GTEx_Pro/blob/main/pca_plot_all_tissues_sva_3D.html).
+[View the 3D PCA plot](https://htmlpreview.github.io/https://raw.githubusercontent.com/dhana2403/GTEx_Pro/refs/heads/main/pca_plot_all_tissues_sva_3D.html)
 
 #### License
 
