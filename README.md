@@ -59,12 +59,12 @@ The final results and plots will be saved in the results.../ directory.
 
 #### License
 
-This project is licensed under the **All Rights Reserved** license. 
-If you'd like to request permission for use or modification, please contact dhana2403
+This project is licensed under the **All Rights Reserved** license for the time being.
+If you'd like to request permission for use or modification, please contact [dhana2403](https://github.com/dhana2403)
 
 ##### Contributing
 
-If you'd like to offer feedback on the workflow/code, please contact dhana2403
+If you'd like to offer feedback on the workflow/code, please contact [dhana2403](https://github.com/dhana2403)
 
 ###### Acknowledgments
 
