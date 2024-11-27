@@ -59,15 +59,12 @@ The final results and plots will be saved in the results.../ directory.
 
 #### License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the **All Rights Reserved** license. 
+If you'd like to request permission for use or modification, please contact dhana2403
 
 ##### Contributing
 
-Contributions are welcome! 
-Please feel free to submit a Pull Request or open an Issue to discuss potential changes or improvements.
-Fork the repository.
-Open a Pull Request.
-Offer your feedback
+If you'd like to offer feedback on the workflow/code, please contact dhana2403
 
 ###### Acknowledgments
 
