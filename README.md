@@ -53,9 +53,9 @@ The final results and plots will be saved in the results.../ directory.
 
 ## PCA 
 
-[View the 3D PCA plot](https://dhana2403.github.io/3D_PCA_plot/pca_plot_all_tissues_sva_3D.html) 
-[View 3D UMAP plot](https://dhana2403.github.io/3D_PCA_plot/umap_plot_all_tissues_sva_3D.html)
-[View 3D TNSE plot](https://dhana2403.github.io/3D_PCA_plot/tsne_plot_all_tissues_sva_3D.html)
+[View the 3D PCA plot](https://dhana2403.github.io/3D_plots/pca_plot_all_tissues_sva_3D.html) 
+[View 3D UMAP plot](https://dhana2403.github.io/3D_plots/umap_plot_all_tissues_sva_3D.html)
+[View 3D TNSE plot](https://dhana2403.github.io/3D_plots/tsne_plot_all_tissues_sva_3D.html)
 
 #### License
 
