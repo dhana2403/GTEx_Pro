@@ -6,7 +6,7 @@ Visualizing gene expression in GTEx
 
 ## Project Overview
 
-This project contains data acquisition, preprocessing, normalization, batch correction, visualization, and organization code for GTEx dataset. It provides a comprehensive workflow for analyzing gene expression data from various tissues, facilitating downstream analysis and interpretation. This code implements a robust pipeline for analyzing gene expression data of GTEx effectively correcting for batch effects while retaining biological variations associated with sex (view the 3D interactive PCA plot below). The code isn't fully automated and requires manual inputs at specific points. Future updates will be focused on automating the code with less manual inputs
+This project contains data acquisition, preprocessing, normalization, batch correction, visualization, and organization code for GTEx dataset. It provides a comprehensive workflow for analyzing gene expression data from various tissues, facilitating downstream analysis and interpretation. This code implements a robust preprocessing pipeline for analyzing gene expression data of GTEx effectively correcting for batch effects while retaining biological variations associated with sex (view the 3D interactive PCA plot below). The code isn't fully automated and requires manual inputs at specific points. Future updates will be focused on automating the code with less manual inputs
 
 ## Table of Contents
 
