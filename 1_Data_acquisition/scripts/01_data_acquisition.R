@@ -1,7 +1,7 @@
 
 ################################Data acquisition#################################################
 
-ystem('mkdir -p data/raw')
+system('mkdir -p data/raw')
 system('mkdir -p data/processed')
 system('mkdir -p data/metadata')
 
