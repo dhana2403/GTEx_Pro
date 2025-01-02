@@ -44,7 +44,7 @@ process_tissue <- function(tissue_file, metadata) {
   rownames(mod0) <- sample_ids
   
   # Perform SVA to estimate surrogate variables
-  sva_results <- sva(as.matrix(normalized_counts), mod, mod0)
+  sva_results <- sva((normalized_counts), mod, mod0)
   
   # Extract surrogate variables
   sv <- sva_results$sv
