@@ -21,11 +21,10 @@ qc_check_readcounts <- function(tis, outliers = NA) {
   # Perform TMM normalization using edgeR
   dge <- DGEList(counts = readcounts_filtered) %>%
     calcNormFactors()
-  readcounts_norm <- cpm(dge, normalized.lib.sizes = TRUE, log = FALSE)
   
   output_dir <- './data/processed/expression/readcounts_tmm/'
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
-  saveRDS(readcounts_norm, paste0(output_dir, tis))
+  saveRDS(readcounts_filtered, paste0(output_dir, tis))
   
   # Append the sample count to the list
   sample_counts_list[[tis]] <<- data.frame(
