@@ -18,6 +18,10 @@ process data_acquisition {
     """
 }
 
+// Workflow definition
+workflow {
+    output_dir = file("https://github.com/dhana2403/GTEx_Pro")  // Replace with your actual local path 
 
-// Execute the process directly
-data_acquisition("/path/to/your/repository")
+    // Run the data acquisition process
+    data_acquisition(output_dir)
+}
