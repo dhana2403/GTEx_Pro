@@ -1,7 +1,5 @@
 #!/usr/bin/env nextflow
 
-params.tissue = 'Brain - Cortex', 'Lung', 'Liver' // Tissue of interest
-params.gene_id = 'ENSG00000158793' // Gene of interest
 
 // Process for Data Acquisition
 process data_acquisition {
