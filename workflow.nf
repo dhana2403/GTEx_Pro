@@ -11,15 +11,25 @@ process data_acquisition {
 
     script:
     """
-    # Ensure that the data/raw and data/metadata directories exist
+    # Ensure that the data/raw and data/metadata directories exist within the output directory
     mkdir -p ${output_dir}/data/raw
     mkdir -p ${output_dir}/data/metadata
 
-    # Code to acquire your raw data (adjust as needed)
-    python ${output_dir}/1_Data_acquisition/scripts/01_data_acquisition.R --output ${output_dir}/data/raw
+    # Check if directories are created
+    echo "Checking raw directory: ${output_dir}/data/raw"
+    ls ${output_dir}/data/raw
 
-    # Code to acquire your metadata (adjust as needed)
-    python ${output_dir}/1_Data_acquisition/scripts/01_data_acquisition.R --output ${output_dir}/data/metadata
+    # Run the R script to acquire raw data
+    Rscript ${output_dir}/1_Data_acquisition/scripts/download_raw_data.R --output ${output_dir}/data/raw
+
+    # Check if raw data was downloaded
+    ls ${output_dir}/data/raw
+
+    # Run the R script to acquire metadata
+    Rscript ${output_dir}/1_Data_acquisition/scripts/download_metadata.R --output ${output_dir}/data/metadata
+
+    # Check if metadata was downloaded
+    ls ${output_dir}/data/metadata
     """
 }
 
