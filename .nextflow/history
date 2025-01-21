@@ -1,0 +1,6 @@
+2025-01-20 16:57:23	-	serene_bartik	-	7059b12c52fa5cf671f367c49c55b006	a5210a71-0866-4208-a205-8834d1382e49	nextflow run workflow.nf
+2025-01-20 16:57:58	-	compassionate_leakey	-	7059b12c52fa5cf671f367c49c55b006	15536018-dec2-4995-a877-64563f958d6d	nextflow run workflow.nf
+2025-01-20 17:01:16	2.6s	friendly_dalembert	ERR	460860561a825959a692a9e24ef87966	6423ff7f-1312-4696-a5c8-c472ec47cb1b	nextflow run workflow.nf
+2025-01-20 17:06:39	2.1s	angry_stallman	ERR	460860561a825959a692a9e24ef87966	5ca07995-ad0d-4634-ad73-0ea27301b3d8	nextflow run workflow.nf
+2025-01-20 17:51:40	2.2s	backstabbing_bartik	ERR	460860561a825959a692a9e24ef87966	8d238035-ff79-4dcc-a3d3-451640f56a87	nextflow run workflow.nf
+2025-01-20 17:55:56	1.9s	jovial_mandelbrot	ERR	460860561a825959a692a9e24ef87966	867a403b-6839-4fef-a458-cf5885ccbf74	nextflow run workflow.nf
