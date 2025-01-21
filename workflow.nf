@@ -20,13 +20,13 @@ process data_acquisition {
     ls ${output_dir}/data/raw
 
     # Run the R script to acquire raw data
-    Rscript ${output_dir}/1_Data_acquisition/scripts/download_raw_data.R --output ${output_dir}/data/raw
+    Rscript ${output_dir}/1_Data_acquisition/scripts/01_data_acquisition.R --output ${output_dir}/data/raw
 
     # Check if raw data was downloaded
     ls ${output_dir}/data/raw
 
     # Run the R script to acquire metadata
-    Rscript ${output_dir}/1_Data_acquisition/scripts/download_metadata.R --output ${output_dir}/data/metadata
+    Rscript ${output_dir}/1_Data_acquisition/scripts/01_data_acquisition.R --output ${output_dir}/data/metadata
 
     # Check if metadata was downloaded
     ls ${output_dir}/data/metadata
