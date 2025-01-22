@@ -4,3 +4,4 @@
 2025-01-20 17:06:39	2.1s	angry_stallman	ERR	460860561a825959a692a9e24ef87966	5ca07995-ad0d-4634-ad73-0ea27301b3d8	nextflow run workflow.nf
 2025-01-20 17:51:40	2.2s	backstabbing_bartik	ERR	460860561a825959a692a9e24ef87966	8d238035-ff79-4dcc-a3d3-451640f56a87	nextflow run workflow.nf
 2025-01-20 17:55:56	1.9s	jovial_mandelbrot	ERR	460860561a825959a692a9e24ef87966	867a403b-6839-4fef-a458-cf5885ccbf74	nextflow run workflow.nf
+2025-01-22 15:16:15	-	mighty_carlsson	-	bc2637fa8832a5fe2c75f8455e418e13	7e4b1823-bf73-4151-8478-8631ecabf6a6	nextflow run workflow.nf
