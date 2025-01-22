@@ -35,12 +35,8 @@ process data_acquisition {
 
 // Workflow definition
 workflow {
-<<<<<<< HEAD
     output_dir = file("/Users/dhanalakshmijothi/GTEx_Pro")  // Replace with your actual local path 
-=======
     output_dir = file("/Users/dhanalakshmijothi/GTEx_Pro")  // Path to your local repository or directory
->>>>>>> origin/main
-
     // Run the data acquisition process
     data_acquisition(output_dir)
 }
