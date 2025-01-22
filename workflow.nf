@@ -1,6 +1,5 @@
 
-=======
->>>>>>> origin/main
+
 // Process for Data Acquisition
 process data_acquisition {
     input:
