@@ -2,9 +2,9 @@
 
 
 #Load library for acquiring metadata and gene expression data
-import os
-import requests
-import subprocess
+import os      #creates directories
+import requests  #downloads files
+import subprocess #unzips command
 
 #create directories for saving the data
 os.makedirs("data/raw", exist_ok=True)
