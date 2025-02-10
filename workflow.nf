@@ -33,10 +33,33 @@ process data_acquisition {
     """
 }
 
+process data_preprocessing {
+
+input: path output_dir
+string tissue_of_choice
+string geneid_of_choice
+
+output: path 'data/processed/expression/readcounts/*', emit: processed_data
+        path 'data/processed/attphe.rds', emit: attphe_data
+
+script:
+"""
+#Run the R scripts for data preprocessing with manual input
+Rscript ${output_dir}/2_Data_preprocessing/scripts/02_data_preprocessing.R \
+     --output ${output_dir}/data/processed \
+     --tissue "${tissue_of_choice}" \
+     --gene "${geneid_of_choice}"
+"""
+}
+
 // Workflow definition
 workflow {
     output_dir = file("/Users/dhanalakshmijothi/GTEx_Pro")  // Replace with your actual local path 
-    output_dir = file("/Users/dhanalakshmijothi/GTEx_Pro")  // Path to your local repository or directory
-    // Run the data acquisition process
+    tissue_of_choice = 'Brain-Cortex', 'Liver', 'Lung'
+
+// Run the data acquisition process
     data_acquisition(output_dir)
+
+//Run the data preprocessing process after acquisition
+data_preprocessing(output_dir, tissue_of_choice, geneid_of_choice)
 }
