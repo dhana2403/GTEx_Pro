@@ -56,6 +56,7 @@ Rscript ${output_dir}/2_Data_preprocessing/scripts/02_data_preprocessing.R \
 workflow {
     output_dir = file("/Users/dhanalakshmijothi/GTEx_Pro")  // Replace with your actual local path 
     tissue_of_choice = 'Brain-Cortex', 'Liver', 'Lung'
+    geneid_of_choice = '', '', ''
 
 // Run the data acquisition process
     data_acquisition(output_dir)
