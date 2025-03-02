@@ -36,7 +36,6 @@ process data_acquisition {
 process data_preprocessing {
 
 input: path output_dir
-string tissue_of_choice
 string geneid_of_choice
 
 output: path 'data/processed/expression/readcounts/*', emit: processed_data
