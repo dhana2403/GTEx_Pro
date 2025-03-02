@@ -58,7 +58,6 @@ workflow {
     geneid_of_choice = ['ENSG00000198793', 'ENSG00000118689', 'ENSG00000096717', 'ENSG00000142082', 'ENSG00000133818', 
                         'ENSG00000121691', 'ENSG00000017427', 'ENSG00000140443', 'ENSG00000141510', 'ENSG00000077463', 
                         'ENSG00000130203', 'ENSG00000126458', 'ENSG00000142168', 'ENSG00000133116']
-    tissue_of_choice = 'Brain'  // Example of a defined tissue of choice
 
     // Run the data acquisition process
     data_acquisition(output_dir)
