@@ -1,11 +1,25 @@
-################################################## DATA PREPROCESSING #################################################
-
 # Load required libraries
 library(data.table)
 library(tidyverse)
 library(dplyr)
+library(argparse)  # Argument parsing library
 
-# Load and process metadata files
+# Set up argument parser
+parser <- ArgumentParser(description = "Preprocess Gene Expression Data")
+parser$add_argument("--output", type = "character", help = "Directory to store output")
+parser$add_argument("--gene", type = "character", help = "Comma-separated list of gene IDs")
+
+# Parse the command line arguments
+args <- parser$parse_args()
+
+# Ensure output directory exists
+dir.create(args$output, recursive = TRUE, showWarnings = FALSE)
+
+# Parse gene IDs from the string passed in command line
+genes_of_interest <- strsplit(args$gene, ",")[[1]]
+
+################################################## Load and process metadata files #################################################
+
 att <- read_tsv('./data/metadata/GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt') %>%
   mutate(SUBJID = sapply(strsplit(SAMPID, '-'), function(x) paste(x[1], x[2], sep = '-'))) %>%
   select(SAMPID, SMTS, SMTSD, SMNABTCH, SMGEBTCH, SUBJID, SMRIN, SMTSISCH) %>%
@@ -28,16 +42,13 @@ attphe <- att %>%
 
 ################################################## All attributes and phenotypes are in attphe #################################################
 
-                         
 attphe_filtered <- attphe %>%
   # filter(rin >= 7.0) %>%  # include it as a quality control if there are many samples
-  filter(minor_tissue %in% c(
-    'Brain - Cortex', #####insert your tissue of choice
-  )) %>%
-  filter(death %in% c('intermediatedeath', 'slowdeath')) #####based on your experimental conditions
+  filter(minor_tissue %in% c('Brain - Cortex')) %>%  # Example of filtering based on a specific tissue
+  filter(death %in% c('intermediatedeath', 'slowdeath'))  # Example of filtering based on experimental conditions
 
 ################################################## Modify count data #################################################
-                       
+
 # Load and process gene expression data
 dat <- fread('./data/raw/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gct', select = c('Name', attphe_filtered$sample_id)) %>%
   as.data.frame()
@@ -46,11 +57,9 @@ dat <- fread('./data/raw/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gc
 rownames(dat) <- gsub("\\.\\d+$", "", dat$Name)
 dat$Name <- NULL
 
-# Convert to matrix and filter based on genes of interest
+# Convert to matrix and filter based on genes of interest (using the input gene list)
 dat_matrix <- as.matrix(dat)
-genes_of_interest <- c(
-  'ENSG00000158793',#####insert your gene_id of choice)
-genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
+genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)  # Clean up gene IDs if necessary
 dat_filtered <- dat_matrix[rownames(dat_matrix) %in% genes_of_interest, ]
 
 # Ensure samples match metadata and filter accordingly
@@ -64,10 +73,10 @@ dat_filtered <- dat_filtered[, apply(dat_filtered, 2, var) != 0]
 samples_by_tissues <- tapply(attphe_filtered$sample_id, INDEX = attphe_filtered$minor_tissue, FUN = unique)
 dat_filtered_tissues <- lapply(samples_by_tissues, function(samps) {
   samps <- intersect(samps, samplesx)
-  if (length(samps) > 1) { # Ensure each tissue group has at least 2 samples
+  if (length(samps) > 1) {  # Ensure each tissue group has at least 2 samples
     return(dat_filtered[, samps, drop = FALSE])
   } else {
-    return(NULL) # Skip tissue groups with insufficient samples
+    return(NULL)  # Skip tissue groups with insufficient samples
   }
 })
 
@@ -77,13 +86,12 @@ dat_filtered_tissues <- Filter(Negate(is.null), dat_filtered_tissues)
 # Clean column names
 names(dat_filtered_tissues) <- sapply(strsplit(gsub(' ', '', names(dat_filtered_tissues)), '[()]'), function(x) x[[1]])
 
-# Create directory if it does not exist
-dir.create('data/processed/expression/readcounts/', recursive = TRUE, showWarnings = FALSE)
-
 # Save the filtered data and metadata
+dir.create(file.path(args$output, 'data/processed/expression/readcounts/'), recursive = TRUE, showWarnings = FALSE)
 sapply(names(dat_filtered_tissues), function(nm) {
-  saveRDS(dat_filtered_tissues[[nm]], file.path('data/processed/expression/readcounts/', paste0(nm, '.rds')))
+  saveRDS(dat_filtered_tissues[[nm]], file.path(args$output, 'data/processed/expression/readcounts/', paste0(nm, '.rds')))
 })
-saveRDS(attphe_filtered, './data/processed/attphe.rds')
+saveRDS(attphe_filtered, file.path(args$output, 'data/processed/attphe.rds'))
+
 
 
