@@ -75,14 +75,9 @@ attphe <- att %>%
   full_join(phe, by = "subj_id") %>%
   unique() %>%
   drop_na()  # Omit missing values
-
-# Filtered metadata
-attphe_filtered <- attphe %>%
-  filter(!minor_tissue %in% c("Cervix - Ectocervix", "Cervix - Endocervix", "Fallopian Tube",
-                              "Testis", "Uterus", "Vagina", "Ovary", "Prostate","Breast - Mammary Tissue"))
-
+  
 # Load and process gene expression data
-dat <- fread(file.path(raw_dir, 'GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gct'), select = c('Name', attphe_filtered$sample_id)) %>%
+dat <- fread(file.path(raw_dir, 'GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gct'), select = c('Name', attphe$sample_id)) %>%
   as.data.frame()
 
 # Remove version numbers from gene names
@@ -100,14 +95,14 @@ genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
 dat_filtered <- dat_matrix[rownames(dat_matrix) %in% genes_of_interest, ]
 
 # Ensure samples match metadata and filter accordingly
-samplesx <- intersect(attphe_filtered$sample_id, colnames(dat_filtered))
+samplesx <- intersect(attphe$sample_id, colnames(dat_filtered))
 dat_filtered <- dat_filtered[, samplesx]
 
 # Remove columns with zero variance
 dat_filtered <- dat_filtered[, apply(dat_filtered, 2, var) != 0]
 
 # Group samples by tissue based on filtered metadata
-samples_by_tissues <- tapply(attphe_filtered$sample_id, INDEX = attphe_filtered$minor_tissue, FUN = unique)
+samples_by_tissues <- tapply(attphe$sample_id, INDEX = attphe$minor_tissue, FUN = unique)
 dat_filtered_tissues <- lapply(samples_by_tissues, function(samps) {
   samps <- intersect(samps, samplesx)
   if (length(samps) > 1) { # Ensure each tissue group has at least 2 samples
@@ -132,6 +127,6 @@ sapply(names(dat_filtered_tissues), function(nm) {
 })
 
 # Save the metadata
-saveRDS(attphe_filtered, file.path(processed_dir, 'attphe_all.rds'))
+saveRDS(attphe, file.path(processed_dir, 'attphe_all.rds'))
 
 print("Data preprocessing and saving complete.")
