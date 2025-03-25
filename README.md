@@ -1,4 +1,9 @@
-<img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" style="float: right; margin-right: 20px;"/>
+<table>
+  <tr>
+    <td><h1>GTEx Pro Pipeline - Academic Version</h1></td>
+    <td><img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" /></td>
+  </tr>
+</table>
 
 ### GTEx_pro Pipeline - Academic Version
 This repository contains the academic version of the GTEx_pro pipeline for RNA-seq data analysis.
