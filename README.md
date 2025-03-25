@@ -5,7 +5,7 @@
   </tr>
 </table>
 
-### GTEx_pro Pipeline - Academic Version
+### GTEx_pro pipeline - Academic Version
 This repository contains the academic version of the GTEx_pro pipeline for RNA-seq data analysis.
 
 **Features:**
