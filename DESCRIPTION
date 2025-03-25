@@ -1,13 +1,22 @@
 Package: GTEx_sample
 Type: Package
-Title: GTEx Sample Data Processing
+Title: GTEx RNA-seq preprocessing pipeline
 Version: 0.1.0
-Author: Your Name <dhanakala2403@gmail.com>
-Maintainer: Your Name <dhanakala2403@gmail.com>
-Description: This package provides a workflow for processing GTEx gene expression data, including normalization and batch correction.
-Depends: R (>= 3.5.0)
-Imports: dplyr, ggplot2, sva
+Author: Dhanalakshmi Jothi
+Maintainer: dhanakala2403@gmail.com
+Description: This package provides a pipeline for processing and analyzing GTEx RNA-seq data, including preprocessing, normalization, and batch effect correction.
 License: MIT
+Depends: R (>= 3.6.0), dplyr, edgeR, limma, sva, data.table, tidyverse
+Imports:
+    R (>= 3.6.0),
+    data.table,
+    dplyr,
+    edgeR,
+    limma,
+    sva,
+    tidyverse
+Suggests:
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
-
