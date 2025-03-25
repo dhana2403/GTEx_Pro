@@ -1,4 +1,3 @@
-
 #' SVA Batch Correction
 #' 
 #' @export
