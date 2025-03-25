@@ -3,7 +3,7 @@ Type: Package
 Title: GTEx RNA-seq preprocessing pipeline
 Version: 0.1.0
 Author: Dhanalakshmi Jothi
-Maintainer: dhanakala2403@gmail.com
+Maintainer: Dhanalakshmi Jothi <dhanalakshmi@example.com>
 Description: This package provides a pipeline for processing and analyzing GTEx RNA-seq data, including preprocessing, normalization, and batch effect correction.
 License: MIT
 Depends: R (>= 3.6.0), dplyr, edgeR, limma, sva, data.table, tidyverse
