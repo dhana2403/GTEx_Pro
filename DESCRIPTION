@@ -1,4 +1,4 @@
-Package: GTEx_sample
+Package: Package: GTExSample
 Type: Package
 Title: GTEx RNA-seq preprocessing pipeline
 Version: 0.1.0
