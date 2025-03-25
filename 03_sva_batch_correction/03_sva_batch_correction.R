@@ -58,7 +58,7 @@ process_tissue <- function(tissue_file, metadata) {
     # Apply batch effect removal using only sex as a covariate
     adjusted_expression_data <- removeBatchEffect(normalized_counts, batch = attr_filtered$batch1)
   } else {
-    mod0 <- model.matrix(~ sex, data = attr_filtered)
+    mod0 <- model.matrix(~ 1, data = attr_filtered)
     rownames(mod0) <- sample_ids
   
   
