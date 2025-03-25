@@ -1,6 +1,8 @@
 ##################################################
 # Data Download and Directory Creation (First part)
 ##################################################
+#' @export
+data_download_and_dir_creation <- function() {
 
 # Ensure the output directory paths are passed to the script
 output_dir <- Sys.getenv("OUTPUT_DIR")  # Get the output directory path from the environment variable
@@ -35,9 +37,13 @@ system(paste('cd', shQuote(raw_dir), '&& gunzip *'))
 # Output to confirm successful execution
 print("Download and extraction complete.")
 
+}
 ##################################################
 # Data Preprocessing (Second part)
 ##################################################
+
+#' @export
+data_preprocessing <- function(genes_of_interest) {
 
 args <- commandArgs(trailingOnly = TRUE)
 print(paste("Raw arguments from Nextflow:", paste(args, collapse = " ")))
@@ -131,3 +137,4 @@ saveRDS(attphe, file.path(processed_dir, 'attphe_all.rds'))
 
 print("Data preprocessing and saving complete.")
 
+}
