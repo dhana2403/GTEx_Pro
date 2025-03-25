@@ -10,7 +10,7 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
 
 **Features:**
 - Implements basic batch correction using SVA.
-- Provides reproducible workflows for tissue-specific gene expression analysis.
+- Provides reproducible preprocessing workflows for tissue-specific gene expression analysis.
 
 
 **Key Terms:**
