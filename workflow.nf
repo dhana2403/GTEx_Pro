@@ -14,7 +14,7 @@ process data_processing {
     export OUTPUT_DIR=${output_dir}
 
     # Run the R script to acquire raw data and metadata, passing the genes_of_interest
-   Rscript ${output_dir}/R/01_data_processing/01_data_processing.R ${genes_of_interest.join(' ')}
+   Rscript ${output_dir}/01_data_processing/01_data_processing.R ${genes_of_interest.join(' ')}
     """
 }
 
@@ -37,7 +37,7 @@ process data_normalization {
 
 
     # Run the R script for TMM normalization
-    Rscript ${output_dir}/R/02_data_normalization/02_data_normalization.R
+    Rscript ${output_dir}/02_data_normalization/02_data_normalization.R
     """
 }
 
@@ -57,7 +57,7 @@ script:
     export PROCESSED_DIR=${processed_dir}
 
 # Run the R script for SVA batch correction
-  Rscript ${output_dir}/R/03_sva_batch_correction/03_sva_batch_correction.R
+  Rscript ${output_dir}/03_sva_batch_correction/03_sva_batch_correction.R
 """
 
 }
@@ -66,7 +66,7 @@ script:
 // Workflow definition
 workflow {
     // Define the output directory and genes of interest
-    output_dir = file("/Users/dhanalakshmijothi/Desktop/GTEx_sample")  // Replace with your actual local path
+    output_dir = file("/Users/dhanalakshmijothi/Desktop/GTEx_Pro_final")  // Replace with your actual local path
     processed_dir = file("${output_dir}/data/processed")
 
 
