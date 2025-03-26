@@ -6,8 +6,4 @@
 #' @importFrom sva sva num.sv
 #' @importFrom tidyverse read_tsv set_names
 
-# Export functions for external usage
-export(data_download_and_dir_creation)
-export(data_processing)
-export(data_normalization)
-export(sva_batch_correction)
+
