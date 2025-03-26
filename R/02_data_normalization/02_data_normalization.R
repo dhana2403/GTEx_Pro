@@ -2,8 +2,6 @@
 # Data Normalization by TMM
 ############################
 
-#' @export
-data_normalization <- function() {
 
 library(edgeR)
 library(dplyr)
@@ -92,4 +90,3 @@ write.csv(global_sample_counts_df, file.path(processed_dir, 'sample_counts.csv')
 
 rm(list = ls())
 
-}
