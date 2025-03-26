@@ -1,7 +1,4 @@
 #' SVA Batch Correction
-#' 
-#' @export
-sva_batch_correction <- function() {
 
 # Load required libraries
 library(limma)    # For removeBatchEffect
@@ -96,4 +93,4 @@ for (tissue_file in tissue_files) {
   process_tissue(tissue_file, metadata)
 }
 
-}
+
