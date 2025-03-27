@@ -41,10 +41,11 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
    nextflow run workflow.nf
    
 8. Results in the output directory:
-   The results will be saved in the directories defined by output_dir and processed_dir within the workflow.nf file. Specifically, you will find:
-Raw data and metadata in {output_dir}/data/raw/ and ${output_dir}/data/metadata/.
-Normalized expression data in {processed_dir}/expression/readcounts_tmm_all/.
-Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
+   The results will be saved in the directories defined by output_dir and processed_dir within the workflow.nf file.
+   Specifically, you will find:
+         Raw data and metadata in {output_dir}/data/raw/ and ${output_dir}/data/metadata/.
+         Normalized expression data in {processed_dir}/expression/readcounts_tmm_all/.
+         Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
 
 
 
