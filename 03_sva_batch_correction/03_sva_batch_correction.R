@@ -1,5 +1,4 @@
-#' SVA Batch Correction
-
+# sva_batch_correction.R
 
 # Load required libraries
 library(limma)    # For removeBatchEffect
@@ -54,7 +53,7 @@ process_tissue <- function(tissue_file, metadata) {
   rownames(mod) <- sample_ids
 
   # Check if SVA should be skipped
-  if (skip_sva) {
+  if (tissue_name %in% sex_specific_tissues) {
     cat("Skipping SVA for tissue:", tissue_name, "\n")
     # Apply batch effect removal using only sex as a covariate
     adjusted_expression_data <- removeBatchEffect(normalized_counts, batch = attr_filtered$batch1)
@@ -93,5 +92,6 @@ process_tissue <- function(tissue_file, metadata) {
 for (tissue_file in tissue_files) {
   process_tissue(tissue_file, metadata)
 }
+
 
 
