@@ -62,13 +62,11 @@ script:
 
 }
 
-
 // Workflow definition
 workflow {
     // Define the output directory and genes of interest
     output_dir = file("/Users/dhanalakshmijothi/Desktop/GTEx_sample")  // Replace with your actual local path
     processed_dir = file("${output_dir}/data/processed")
-
 
     // Define the genes_of_interest (can be passed as a string or list from the command line)
     genes_of_interest = [
