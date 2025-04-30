@@ -14,7 +14,7 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
 
 
 **Key Terms:**
-- The pipeline is provided free of charge for academic use.
+- The pipeline is provided free of charge for academic use. If used for academic purposes, please cite https://www.biorxiv.org/content/10.1101/2025.04.26.650748v1 
 - Redistribution or modification for commercial purposes is strictly prohibited.
 
 **Prerequisites**
@@ -46,6 +46,11 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
          Raw data and metadata in {output_dir}/data/raw/ and ${output_dir}/data/metadata/.
          Normalized expression data in {processed_dir}/expression/readcounts_tmm_all/.
          Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
+
+**Citation**
+
+Jothi, D., GTEx_Pro: A robust and accurate preprocessing pipeline for GTEx data: TMM+CPM normalization and SVA batch correction for enhanced multi-tissue analysis. bioRxiv, 2025: p. 2025.04.26.650748.
+
 
 
 
