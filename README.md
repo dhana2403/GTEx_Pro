@@ -9,7 +9,7 @@
 This repository contains the academic version of the GTEx_pro pipeline for RNA-seq data analysis. It provides a comprehensive workflow for analyzing gene expression data from various tissues, facilitating downstream analysis and interpretation. This workflow implements a robust and accurate preprocessing pipeline for analyzing gene expression data of GTEx effectively correcting for batch effects while using sex as a covariate
 
 **Features:**
-- Implements basic normalization and batch correction using SVA.
+- Integrates basic normalization and batch correction using SVA.
 - Provides reproducible preprocessing pipeline for tissue-specific gene expression analysis.
 
 
