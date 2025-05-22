@@ -46,6 +46,7 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
          Raw data and metadata in {output_dir}/data/raw/ and ${output_dir}/data/metadata/.
          Normalized expression data in {processed_dir}/expression/readcounts_tmm_all/.
          Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
+**Results**
 
 **Citation**
 
