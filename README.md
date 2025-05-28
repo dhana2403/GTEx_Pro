@@ -1,6 +1,6 @@
 <table width="100%">
 <td>
-  <div style="width: 100%; text-align: right; padding-right: 60px;">
+  <div style="width: 100%; text-align: right; padding-right: 40px;">
     <img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" />
   </div>
 </td>
