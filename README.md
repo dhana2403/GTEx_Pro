@@ -49,11 +49,11 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
    
 **Results**
 
-     <p align = "center">
+   <div style="display: flex; justify-content: space-between;">
    <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM.png?raw=true" width="20%">
    <img src="https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="20%"
-     </p>
-
+   <\div>
+     
 **Citation**
 
 Jothi, D., GTEx_Pro: A robust and accurate preprocessing pipeline for GTEx data: TMM+CPM normalization and SVA batch correction for enhanced multi-tissue analysis. bioRxiv, 2025: p. 2025.04.26.650748.
