@@ -46,10 +46,12 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
          Raw data and metadata in {output_dir}/data/raw/ and ${output_dir}/data/metadata/.
          Normalized expression data in {processed_dir}/expression/readcounts_tmm_all/.
          Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
+   
 **Results**
+
      <p align = "center">
-   <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM.png?raw=true" width="45%">
-   <img src="[path/to/image2.png](https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="45%"
+   <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM.png?raw=true" width="20%">
+   <img src="[path/to/image2.png](https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="20%"
      </p>
 
 **Citation**
