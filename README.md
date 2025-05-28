@@ -49,9 +49,9 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
    
 **Results**
 
-   <div style="display: flex; justify-content: space-between; gap: 30px;">
+   <div style="display: flex; justify-content: space-between; gap: 90px;">
    <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM.png?raw=true" width="20%">
-   <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="40%">
+   <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="30%">
    </div>
      
 **Citation**
