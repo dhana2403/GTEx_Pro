@@ -48,8 +48,8 @@ This repository contains the academic version of the GTEx_pro pipeline for RNA-s
          Adjusted (SVA-corrected) expression data in {processed_dir}/expression/adjusted_sva_all/.
 **Results**
      <p align = "center">
-   <img src = "" width="45%">
-   <img src="path/to/image2.png" width="45%"
+   <img src = "https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM.png?raw=true" width="45%">
+   <img src="[path/to/image2.png](https://github.com/dhana2403/GTEx_sample/blob/main/images/TMM%2BCPM%2BSVA.png?raw=true" width="45%"
      </p>
 
 **Citation**
