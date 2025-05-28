@@ -1,9 +1,13 @@
 <table width="100%">
-<td>
-  <div style="width: 100%; text-align: right; padding-right: 40px;">
-    <img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" />
-  </div>
-</td>
+  <tr>
+    <td style="vertical-align: middle;">
+      <h1>GTEx Pro Pipeline</h1>
+    </td>
+    <td style="text-align: right; padding-right: 60px; vertical-align: middle;">
+      <img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" />
+    </td>
+  </tr>
+</table>
 
 ### GTEx_pro pipeline - Academic Version
 This repository contains the academic version of the GTEx_pro pipeline for RNA-seq data analysis. It provides a comprehensive workflow for analyzing gene expression data from GTEx tissues, facilitating downstream analysis and interpretation. This workflow implements a robust and accurate preprocessing pipeline for analyzing gene expression data of GTEx effectively correcting for batch effects while using sex as a covariate
