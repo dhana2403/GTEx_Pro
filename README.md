@@ -1,7 +1,7 @@
 <table width="100%">
   <tr>
     <td><h1>GTEx Pro Pipeline</h1></td>
-    <td style="text-align: right; padding-right: 40px;">
+    <td style="text-align: right; padding-right: 80px;">
       <img src="https://raw.githubusercontent.com/dhana2403/GTEx_sample/main/2.png" alt="GTEx Pro Logo" width="200" />
     </td>
   </tr>
