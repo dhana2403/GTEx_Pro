@@ -1,3 +1,11 @@
+# System dependencies
+wget
+gzip
+
+#R packages
 data.table
 tidyverse
 dplyr
+edgeR
+limma
+sva
