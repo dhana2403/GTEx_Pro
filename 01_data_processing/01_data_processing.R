@@ -78,8 +78,8 @@ attphe <- att %>%
 
 # Filtered metadata
 attphe_filtered <- attphe %>%
-  filter(!minor_tissue %in% c("Cervix - Ectocervix", "Cervix - Endocervix", "Fallopian Tube",
-                              "Testis", "Uterus", "Vagina", "Ovary", "Prostate","Breast - Mammary Tissue"))
+ #  filter(!minor_tissue %in% c("Cervix - Ectocervix", "Cervix - Endocervix", "Fallopian Tube",
+  #                             "Testis", "Uterus", "Vagina", "Ovary", "Prostate","Breast - Mammary Tissue")) # this was filtered for representation
 
 # Load and process gene expression data
 dat <- fread(file.path(raw_dir, 'GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gct'), select = c('Name', attphe_filtered$sample_id)) %>%
