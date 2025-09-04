@@ -18,6 +18,9 @@ genes_of_interest_ch = Channel.value([
 // -------------------------------
 
 process data_processing {
+
+    container 'myproject:latest'  // <-- Docker image name
+
     input:
     path output_dir
     val genes_of_interest
@@ -35,6 +38,9 @@ process data_processing {
 }
 
 process data_normalization {
+
+    container 'myproject:latest'  // <-- Docker image name
+
     input:
     path processed_dir
     path output_dir
@@ -53,6 +59,9 @@ process data_normalization {
 }
 
 process sva_batch_correction {
+
+    container 'myproject:latest'  // <-- Docker image name
+
     input:
     path processed_dir
     path output_dir
