@@ -45,8 +45,11 @@ This repository contains the academic version of the GTEx_pro pipeline for GTEx 
    Replace the example gene IDs in the genes_of_interest variable with your own gene IDs.
    Make sure the gene IDs are separated by commas and enclosed in single quotes, e.g., 'ENSG00000000001', 'ENSG00000000002'.
 
-7. Run the workflow:
-   nextflow run workflow.nf
+7. Build the Docker image:
+   docker build -t myproject:latest .
+
+8. Run the workflow:
+   nextflow run workflow.nf -with-docker myproject:latest
    
 8. Results in the output directory:
    The results will be saved in the directories defined by output_dir and processed_dir within the workflow.nf file.
