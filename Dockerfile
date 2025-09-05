@@ -1,5 +1,6 @@
 # Base image with PyTorch (CUDA or CPU-only)
-FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+# Start from an official R image
+FROM rocker/r-base:4.3.1
 
 # Set working directory
 WORKDIR /app
