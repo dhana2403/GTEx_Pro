@@ -73,8 +73,7 @@ phe <- read_tsv(file.path(metadata_dir, 'GTEx_Analysis_v8_Annotations_SubjectPhe
 # Merge and filter metadata
 attphe <- att %>%
   full_join(phe, by = "subj_id") %>%
-  unique() %>%
-  drop_na()  # Omit missing values
+  unique()
 
 # Filtered metadata
 attphe_filtered <- attphe %>%
@@ -91,9 +90,38 @@ dat$Name <- NULL
 
 # Convert to matrix and filter based on genes of interest
 dat_matrix <- as.matrix(dat)
-dat_matrix[!is.finite(dat_matrix)] <- NA # Convert infinite values to NA
-dat_matrix <- na.omit(dat_matrix) # Remove rows with NA values
+# Function: tissue-wise median imputation
+impute_tissue_median <- function(mat, metadata, tissue_col = "minor_tissue") {
+  
+  # Get unique tissues
+  tissues <- unique(metadata[[tissue_col]])
+  
+  # Copy matrix to fill
+  mat_filled <- mat
+  
+  for (tissue in tissues) {
+    # Samples belonging to this tissue
+    tissue_samples <- metadata$sample_id[metadata[[tissue_col]] == tissue]
+    tissue_samples <- intersect(tissue_samples, colnames(mat_filled))
+    
+    if(length(tissue_samples) > 0) {
+      # For each gene, replace NA/Inf in this tissue with row median of tissue
+      mat_filled[, tissue_samples] <- t(apply(mat_filled[, tissue_samples, drop=FALSE], 1, function(x) {
+        invalid <- !is.finite(x)
+        if(any(invalid)) {
+          x[invalid] <- median(x[is.finite(x)], na.rm = TRUE)
+        }
+        return(x)
+      }))
+    }
+  }
+  
+  return(mat_filled)
+}
 
+# Apply to your dat_matrix
+dat_matrix <- impute_tissue_median(dat_matrix, attphe_filtered)
+                         
 genes_of_interest <- gsub("\\.\\d+$", "", genes_of_interest)
 
 # Filter the data for genes of interest
