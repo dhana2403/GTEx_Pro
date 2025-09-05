@@ -1,4 +1,3 @@
-# Base image with PyTorch (CUDA or CPU-only)
 # Start from an official R image
 FROM rocker/r-base:4.3.1
 
