@@ -1,19 +1,29 @@
-# Use stable R image with tidyverse pre-installed
-FROM rocker/tidyverse:4.3.1
+# Use stable Rocker R image based on Debian stable
+FROM rocker/r-ver:4.3.1
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /project
 
-# Install minimal system dependencies
+# Install essential system dependencies for R packages
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends unzip wget gzip && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+        wget \
+        gzip \
+        unzip \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libxml2-dev \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install Bioconductor packages
-RUN R -e "if (!requireNamespace('BiocManager', quietly=TRUE)) install.packages('BiocManager', repos='https://cloud.r-project.org'); BiocManager::install(c('edgeR','limma','sva'))"
+# Copy your R requirements file into the container
+COPY r_requirements.R .
 
-# Copy Nextflow workflow and R scripts
+# Install all R packages from your requirement file
+RUN Rscript r_requirements.R
+
+# Copy your Nextflow workflow and R scripts
 COPY . .
 
-# Default command (Nextflow will handle execution)
-CMD ["R"]
+# Default command (can be overridden when running container)
+CMD ["nextflow", "run", "workflow.nf"]
