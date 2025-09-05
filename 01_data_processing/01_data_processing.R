@@ -76,7 +76,7 @@ attphe <- att %>%
   unique()
 
 # Filtered metadata
-attphe_filtered <- attphe %>%
+attphe_filtered <- attphe
  #  filter(!minor_tissue %in% c("Cervix - Ectocervix", "Cervix - Endocervix", "Fallopian Tube",
   #                             "Testis", "Uterus", "Vagina", "Ovary", "Prostate","Breast - Mammary Tissue")) # this was filtered for representation
 
