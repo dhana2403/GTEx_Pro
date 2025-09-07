@@ -90,6 +90,7 @@ dat$Name <- NULL
 
 # Convert to matrix and filter based on genes of interest
 dat_matrix <- as.matrix(dat)
+                         
 # Function: tissue-wise median imputation
 impute_tissue_median <- function(mat, metadata, tissue_col = "minor_tissue") {
   
