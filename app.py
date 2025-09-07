@@ -5,8 +5,7 @@ import plotly.express as px
 # ---------------------------
 # Load Preprocessed GTEx Data
 # ---------------------------
-# For demo purposes, we'll simulate with a toy dataframe.
-# Replace this with loading your preprocessed GTEx-Pro output (e.g., Parquet/HDF5).
+# this is for demo purposes, simulating with a toy dataframe.
 
 data = {
     "gene": ["TP53", "TP53", "TP53", "BRCA1", "BRCA1", "BRCA1"],
