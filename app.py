@@ -1,48 +1,31 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import requests
+import json
 
-# ---------------------------
-# Load Preprocessed GTEx Data
-# ---------------------------
-# this is for demo purposes, simulating with a toy dataframe.
+st.title("GTEx Expression Viewer")
 
-data = {
-    "gene": ["TP53", "TP53", "TP53", "BRCA1", "BRCA1", "BRCA1"],
-    "tissue": ["Brain", "Liver", "Heart", "Brain", "Liver", "Heart"],
-    "expression": [1.2, 0.8, 0.5, 0.6, 1.1, 0.9]
-}
+# Load JSON mapping of tissue -> CSV link
+json_url = "https://www.dropbox.com/s/yourlink/files.json?dl=1"
+response = requests.get(json_url)
+tissue_map = response.json()
 
-df = pd.DataFrame(data)
+# Dropdown for tissues
+tissue = st.selectbox("Select a tissue:", list(tissue_map.keys()))
 
-# ---------------------------
-# Streamlit App Layout
-# ---------------------------
+# Load expression data
+df = pd.read_csv(tissue_map[tissue], index_col=0)
 
-st.set_page_config(page_title="GTEx Explorer", layout="centered")
-st.title("GTEx Explorer")
+# Select gene(s)
+genes = st.multiselect("Select gene(s):", df.index)
 
-# Gene input box
-gene_id = st.text_input("Enter Gene ID", "TP53")
+if genes:
+    sub_df = df.loc[genes].T  # samples = rows
+    st.write(sub_df.head())   # preview
 
-# Plot type options
-plot_type = st.radio("Select plot type", ["Boxplot", "Violin"], horizontal=True)
+    # Example visualization
+    import plotly.express as px
+    for gene in genes:
+        fig = px.box(sub_df, y=gene, title=f"{gene} expression in {tissue}")
+        st.plotly_chart(fig)
 
-if gene_id:
-    subset = df[df["gene"] == gene_id]
-
-    if not subset.empty:
-        if plot_type == "Boxplot":
-            fig = px.box(subset, x="tissue", y="expression", points="all",
-                         title=f"Expression of {gene_id} across tissues",
-                         labels={"expression": "Expression level", "tissue": "Tissue"})
-        else:
-            fig = px.violin(subset, x="tissue", y="expression", box=True, points="all",
-                            title=f"Expression of {gene_id} across tissues",
-                            labels={"expression": "Expression level", "tissue": "Tissue"})
-
-        st.plotly_chart(fig, use_container_width=True)
-    else:
-        st.warning(f"No data available for {gene_id}.")
-
-st.caption("Data source: Preprocessed GTEx")
