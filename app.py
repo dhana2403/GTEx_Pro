@@ -6,7 +6,7 @@ import json
 st.title("GTEx Expression Viewer")
 
 # Load JSON mapping of tissue -> CSV link
-json_url = "https://www.dropbox.com/s/yourlink/files.json?dl=1"
+json_url = "https://www.dropbox.com/scl/fi/mjk0737mb30c2tkw7y7y3/files.json?rlkey=e6jy92mfmy61asx51t9cax8f3&st=6ra8e95i&dl=1"
 response = requests.get(json_url)
 tissue_map = response.json()
 
