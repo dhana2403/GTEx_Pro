@@ -69,7 +69,6 @@ This repository contains the academic version of the GTEx_pro pipeline for GTEx 
 
 Jothi, D., GTEx_Pro: A robust and accurate preprocessing pipeline for GTEx data: TMM+CPM normalization and SVA batch correction for enhanced multi-tissue analysis. bioRxiv, 2025: p. 2025.04.26.650748.
 
+**News**
 
-
-
-
+Interactive web interface is under development. Acess it via https://gtexprov1.streamlit.app/ 
