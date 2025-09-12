@@ -71,4 +71,4 @@ Jothi, D., GTEx_Pro: A robust and accurate preprocessing pipeline for GTEx data:
 
 **News**
 
-Interactive web interface is under development. Acess it via https://gtexprov1.streamlit.app/ 
+Interactive web interface is under development. Acess it via https://gtexprov1.streamlit.app/
