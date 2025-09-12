@@ -55,7 +55,7 @@ if genes:
     # Correlation heatmap
     if show_corr and len(genes) > 1:
         corr_matrix = sub_df.corr(method='spearman')  # or 'spearman'
-        st.write(f"Gene-Gene Correlation (Spearman)in {tissue}:")
+        st.write(f"Gene-Gene Correlation (Spearman) in {tissue}:")
         fig_corr = ff.create_annotated_heatmap(
             z=corr_matrix.values,
             x=corr_matrix.columns.tolist(),
@@ -66,5 +66,5 @@ if genes:
             annotation_text=corr_matrix.round(2).values
         )
         st.plotly_chart(fig_corr, use_container_width=True)
-
+        st.markdown("**Citation:** Jothi, D., GTEx_Pro ... bioRxiv, 2025")
 
