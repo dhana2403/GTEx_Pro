@@ -1,4 +1,5 @@
-# sva_batch_correction.R
+# sva_batch_correction_demo.R
+# Public demo version (sensitive logic abstracted)
 
 # Load required libraries
 library(limma)    # For removeBatchEffect
@@ -8,85 +9,69 @@ library(dplyr)    # For data manipulation
 # Get the output directory from the environment variable
 processed_dir <- Sys.getenv("PROCESSED_DIR")
 
-metadata_path <- file.path(processed_dir, "attphe_all.rds")  # Corrected metadata path
+metadata_path <- file.path(processed_dir, "attphe_all.rds")  
 
 # Load metadata
 metadata <- readRDS(metadata_path)
 
 # List all .rds files under the processed expression data path
-tissue_files <- list.files(path = file.path(processed_dir, 'expression/readcounts_tmm_all/'), pattern = '*.rds', full.names = TRUE)
+tissue_files <- list.files(
+  path = file.path(processed_dir, 'expression/readcounts_tmm_all/'),
+  pattern = '*.rds', 
+  full.names = TRUE
+)
 
-# Create directory for adjusted data (only if needed)
-dir.create(file.path(processed_dir, 'expression/adjusted_sva_all'), recursive = TRUE, showWarnings = FALSE)
+# Create directory for adjusted data
+dir.create(file.path(processed_dir, 'expression/adjusted_sva_all'),
+           recursive = TRUE, showWarnings = FALSE)
 
-# Define sex-specific tissues (SVA should be skipped)
+# Define sex-specific tissues (SVA may be skipped here)
 sex_specific_tissues <- c("Cervix-Ectocervix", "Cervix-Endocervix", "FallopianTube",
                           "Testis", "Uterus", "Vagina", "Ovary", "Prostate", "Breast-MammaryTissue")
+
+# Placeholder for private robust batch correction logic
+# In the public version, this is abstracted away
+custom_batch_correction <- function(normalized_counts, metadata, tissue_name) {
+  cat("Running proprietary batch correction for:", tissue_name, "\n")
+  # --- Hidden logic ---
+  # Full implementation available under commercial license only
+  # (SVA estimation, surrogate variables, tissue-specific adjustments)
+  #
+  # For demo purposes, just return input matrix
+  return(normalized_counts)
+}
 
 # Function to process each tissue file
 process_tissue <- function(tissue_file, metadata) {
   tissue_name <- gsub('.rds$', '', basename(tissue_file))
   
-  # Load the normalized read counts data
+  # Load normalized read counts
   normalized_counts <- readRDS(tissue_file)
-  
-  # Ensure matrix format
   normalized_counts <- as.matrix(normalized_counts)
   
-  # Extract sample IDs
   sample_ids <- colnames(normalized_counts)
-  
-  # Filter metadata to include only matching samples
   attr_filtered <- metadata %>% filter(sample_id %in% sample_ids)
   
-  # Check the number of samples
   num_samples <- ncol(normalized_counts)
-  
   if (num_samples < 20) {
     cat('Skipping tissue:', tissue_name, '(Insufficient samples:', num_samples, ')\n')
-    return(NULL)  # Skip this file
+    return(NULL)
   }
   
-  # Define model matrices
-  mod <- model.matrix(~ sex, data = attr_filtered)
-
-  rownames(mod) <- sample_ids
-
-  # Check if SVA should be skipped
-  if (tissue_name %in% sex_specific_tissues) {
-    cat("Skipping SVA for tissue:", tissue_name, "\n")
-    # Apply batch effect removal using only sex as a covariate
-    adjusted_expression_data <- removeBatchEffect(normalized_counts, batch = attr_filtered$batch1)
-  } else {
-    mod0 <- model.matrix(~ 1, data = attr_filtered)
-    rownames(mod0) <- sample_ids
+  # Call placeholder correction function
+  adjusted_expression_data <- custom_batch_correction(normalized_counts, attr_filtered, tissue_name)
   
-  
-  # Estimate number of surrogate variables
-  num_svs <- num.sv(normalized_counts, mod, method = 'be')
-  
-  # Perform SVA with error handling
-  sva_results <- sva(normalized_counts, mod, mod0, n.sv = num_svs)
-  
-  # Extract surrogate variables and remove batch effects
-  sv <- sva_results$sv
-  adjusted_expression_data <- removeBatchEffect(normalized_counts, covariates = sv)
-  
-}
   # Convert back to data frame
   adjusted_expression_data <- as.data.frame(adjusted_expression_data)
   
-  # Define the file path to save the adjusted data
-  result_file <- file.path(processed_dir, 'expression/adjusted_sva_all', paste0(tissue_name, '.rds'))
-  
-  # Save only successfully processed tissues
+  # Save adjusted data
+  result_file <- file.path(processed_dir, 'expression/adjusted_sva_all',
+                           paste0(tissue_name, '.rds'))
   saveRDS(adjusted_expression_data, file = result_file)
   
-  # Print confirmation
   cat('Processed tissue:', tissue_name, '\n')
   cat('Dimensions of adjusted data:', dim(adjusted_expression_data), '\n')
-  }
-
+}
 
 # Process each tissue file
 for (tissue_file in tissue_files) {
