@@ -25,7 +25,7 @@ tissue_files <- list.files(
 dir.create(file.path(processed_dir, 'expression/adjusted_sva_all'),
            recursive = TRUE, showWarnings = FALSE)
 
-# Define sex-specific tissues (for special handling if needed)
+# Define sex-specific tissues
 sex_specific_tissues <- c("Cervix-Ectocervix", "Cervix-Endocervix", "FallopianTube",
                           "Testis", "Uterus", "Vagina", "Ovary", "Prostate", "Breast-MammaryTissue")
 
@@ -35,12 +35,20 @@ sex_specific_tissues <- c("Cervix-Ectocervix", "Cervix-Endocervix", "FallopianTu
 academic_batch_correction <- function(normalized_counts, metadata, tissue_name) {
   cat("Academic demo: running simplified correction for:", tissue_name, "\n")
   
-  # Simple covariate-based adjustment for demo purposes
-  # (Full SVA-based batch correction is proprietary and available under commercial license)
-  if("sex" %in% colnames(metadata)) {
-    adjusted <- limma::removeBatchEffect(normalized_counts, batch = metadata$sex)
+  # If tissue is sex-specific, remove only technical batch (batch1) to preserve sex biology
+  if(tissue_name %in% sex_specific_tissues) {
+    if("batch1" %in% colnames(metadata)) {
+      adjusted <- limma::removeBatchEffect(normalized_counts, batch = metadata$batch1)
+    } else {
+      adjusted <- normalized_counts
+    }
   } else {
-    adjusted <- normalized_counts
+    # For other tissues, optionally remove sex as a batch covariate
+    if("sex" %in% colnames(metadata)) {
+      adjusted <- limma::removeBatchEffect(normalized_counts, batch = metadata$sex)
+    } else {
+      adjusted <- normalized_counts
+    }
   }
   
   return(adjusted)
