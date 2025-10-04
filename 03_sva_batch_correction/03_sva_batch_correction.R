@@ -1,9 +1,9 @@
-# sva_batch_correction_demo.R
-# Public demo version (sensitive logic abstracted)
+# sva_batch_correction_academic.R
+# Academic/demo version of GTEx_Pro
+# Simplified batch correction for academic/research use
 
 # Load required libraries
 library(limma)    # For removeBatchEffect
-library(sva)      # For sva
 library(dplyr)    # For data manipulation
 
 # Get the output directory from the environment variable
@@ -25,23 +25,30 @@ tissue_files <- list.files(
 dir.create(file.path(processed_dir, 'expression/adjusted_sva_all'),
            recursive = TRUE, showWarnings = FALSE)
 
-# Define sex-specific tissues (SVA may be skipped here)
+# Define sex-specific tissues (for special handling if needed)
 sex_specific_tissues <- c("Cervix-Ectocervix", "Cervix-Endocervix", "FallopianTube",
                           "Testis", "Uterus", "Vagina", "Ovary", "Prostate", "Breast-MammaryTissue")
 
-# Placeholder for private robust batch correction logic
-# In the public version, this is abstracted away
-custom_batch_correction <- function(normalized_counts, metadata, tissue_name) {
-  cat("Running proprietary batch correction for:", tissue_name, "\n")
-  # --- Hidden logic ---
-  # Full implementation available under commercial license only
-  # (SVA estimation, surrogate variables, tissue-specific adjustments)
-  #
-  # For demo purposes, just return input matrix
-  return(normalized_counts)
+# -----------------------------
+# Academic/demo batch correction
+# -----------------------------
+academic_batch_correction <- function(normalized_counts, metadata, tissue_name) {
+  cat("Academic demo: running simplified correction for:", tissue_name, "\n")
+  
+  # Simple covariate-based adjustment for demo purposes
+  # (Full SVA-based batch correction is proprietary and available under commercial license)
+  if("sex" %in% colnames(metadata)) {
+    adjusted <- limma::removeBatchEffect(normalized_counts, batch = metadata$sex)
+  } else {
+    adjusted <- normalized_counts
+  }
+  
+  return(adjusted)
 }
 
-# Function to process each tissue file
+# -----------------------------
+# Process each tissue file
+# -----------------------------
 process_tissue <- function(tissue_file, metadata) {
   tissue_name <- gsub('.rds$', '', basename(tissue_file))
   
@@ -58,8 +65,8 @@ process_tissue <- function(tissue_file, metadata) {
     return(NULL)
   }
   
-  # Call placeholder correction function
-  adjusted_expression_data <- custom_batch_correction(normalized_counts, attr_filtered, tissue_name)
+  # Call simplified academic batch correction
+  adjusted_expression_data <- academic_batch_correction(normalized_counts, attr_filtered, tissue_name)
   
   # Convert back to data frame
   adjusted_expression_data <- as.data.frame(adjusted_expression_data)
@@ -73,7 +80,9 @@ process_tissue <- function(tissue_file, metadata) {
   cat('Dimensions of adjusted data:', dim(adjusted_expression_data), '\n')
 }
 
-# Process each tissue file
+# -----------------------------
+# Run pipeline for all tissues
+# -----------------------------
 for (tissue_file in tissue_files) {
   process_tissue(tissue_file, metadata)
 }
