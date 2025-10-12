@@ -71,4 +71,4 @@ Jothi, D. GTEx pro enables accurate multi-tissue gene expression analysis using 
 
 **News**
 
-Interactive web interface is under development for non-programmers. Acess it via https://homeward-bound-project.lovable.app/
+Interactive web interface is under development for non-programmers. Acess it via https://multi-tissue-rnaseq.lovable.app/ 
