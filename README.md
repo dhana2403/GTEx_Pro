@@ -10,7 +10,7 @@ For full functionality and robust preprocessing, please use the GTEx Pro Web App
 GTEx Pro provides a powerful, user-friendly interface for high-quality GTEx multi-tissue gene expression analysis.  
 This web platform replaces the need to run pipeline code locally, offering automated preprocessing, normalization, and batch correction directly in the browser.
 
-The academic web version is provided free of charge. All backend processing uses the same validated methods from the original pipeline, ensuring precision and reproducibility.
+The academic web version is provided free of charge for limited analysis. All backend processing uses the same validated methods from the original pipeline, ensuring precision and reproducibility.
 
 ---
 
@@ -41,7 +41,7 @@ If you use GTEx Pro for academic work, please cite:
 ---
 
 ## **License / Usage Restrictions**
-- Free for **academic research use**
+- Free for **academic research use** for limited set of analysis
 - Redistribution or modification for **commercial purposes is strictly prohibited**
 
 ---
