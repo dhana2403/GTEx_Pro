@@ -15,7 +15,7 @@ The academic web version is provided free of charge. All backend processing uses
 ---
 
 ## **Features**
-- Upload GTEx gene IDs or select tissues directly in the interface  
+- Upload raw read counts and select gene IDs and tissues directly in the interface  
 - Automated robust normalization using TMM + CPM  
 - Batch correction using SVA  
 - Clean visualizations and downloadable expression matrices  
@@ -26,9 +26,10 @@ The academic web version is provided free of charge. All backend processing uses
 
 ## **How to Use**
 1. Visit **https://multi-tissue-rnaseq.lovable.app/**
-2. Choose GTEx tissues and provide your genes of interest
-3. Run preprocessing and download your outputs
-4. Provide feedback inside the app to help improve the platform
+2. Upload your raw expression data and metadata files
+3. Choose tissues and provide your genes of interest
+4. Run preprocessing and download your outputs
+5. Provide feedback inside the app to help improve the platform
 
 ---
 
