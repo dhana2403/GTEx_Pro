@@ -53,5 +53,5 @@ To request new features or report bugs, please use the feedback option inside th
 
 ---
 
-**GTEx Pro — Powered by FeedAI**
+
 
