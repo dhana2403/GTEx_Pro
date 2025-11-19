@@ -38,7 +38,7 @@ The academic web version is provided free of charge for limited analysis. All ba
 
 Check out the demo of the Multi-tissue RNA-seq Analyser:
 
-<video src="images/Multitissue analyser.mp4" controls width="600" />
+<video src="[images/Multitissue analyser.mp4](https://github.com/dhana2403/GTEx_Pro/blob/main/images/Multitissue%20analyser.mp4)" controls width="600" />
 
 ---
 
