@@ -33,6 +33,14 @@ The academic web version is provided free of charge for limited analysis. All ba
 
 ---
 
+
+## Demo Video
+
+Check out the demo of the Multi-tissue RNA-seq Analyser:
+
+[Watch the demo video](https://github.com/dhana2403/GTEx_Pro/blob/main/images/Multitissue%20analyser.mp4)
+
+
 ## **Citation**
 If you use GTEx Pro for academic work, please cite:
 
