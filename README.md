@@ -108,4 +108,5 @@ Contact
 For questions, collaborations, or dataset-related inquiries:
 📧 dhana@feedai.bio
 
+This project has moved to FEED AI: (https://github.com/FEED-26/GTEx_Pro_v1)
 
