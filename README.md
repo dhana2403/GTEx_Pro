@@ -76,21 +76,6 @@ Future versions will expand gene and tissue coverage.
 
 ---
 
-## License
-
-This dataset is released under:
-
-**Creative Commons Attribution 4.0 International (CC BY 4.0)**
-
-You are free to:
-- Share and redistribute
-- Adapt and build upon
-- Use commercially or academically
-
-**Condition:** Proper attribution is required.
-
----
-
 ## Citation
 
 If you use this dataset, please cite:
@@ -104,5 +89,23 @@ If you use this dataset, please cite:
   version   = {v1},
   doi       = {10.5281/zenodo.20668195}
 }
+
+If you use the preprocessing methodology, please also cite:
+
+Jothi, D. GTEx Pro enables accurate multi-tissue gene expression analysis using robust normalization and batch correction. Scientific Reports 15, 32684 (2025). https://doi.org/10.1038/s41598-025-20697-0
+
+## License
+
+Free for academic and non-commercial research use
+Citation required in all publications using this dataset
+Commercial use requires prior written permission from FEED AI
+Redistribution of modified commercial derivatives is not permitted
+Contact
+
+**Condition:** Proper attribution is required.
+
+
+For questions, collaborations, or dataset-related inquiries:
+📧 dhana@feedai.bio
 
 
