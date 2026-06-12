@@ -18,7 +18,7 @@ This resource is designed to support reproducible academic research and data-dri
 
 ## Dataset Access
 
-- **Zenodo DOI:** https://doi.org/10.5281/zenodo.20668195  
+- **Zenodo DOI download:** https://doi.org/10.5281/zenodo.20668195  
 - **Direct download (Zenodo download link):**  
   https://zenodo.org/api/records/20668195/draft/files-archive  
 - **Interactive analysis platform:**  
