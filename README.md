@@ -1,66 +1,108 @@
-# GTEx Pro Pipeline — Web Application Version
+# FEED-Curated GTEx Dataset (v1 - Pilot Release)
 
-### **Note**
-For full functionality and robust preprocessing, please use the GTEx Pro Web Application:  
-👉 **https://multi-tissue-rnaseq.lovable.app/**
+## Overview
 
----
+The **FEED-Curated GTEx Dataset (v1)** is a **pilot, research-ready subset of GTEx gene expression data** prepared by FEED AI.
 
-## **Overview**
-GTEx Pro provides a powerful, user-friendly interface for high-quality GTEx multi-tissue gene expression analysis.  
-This web platform replaces the need to run pipeline code locally, offering automated preprocessing, normalization, and batch correction directly in the browser.
 
-The academic web version is provided free of charge for limited analysis. All backend processing uses the same validated methods from the original pipeline, ensuring precision and reproducibility.
+The dataset is intended to demonstrate FEED AI’s curation and dataset-adaptive normalization framework, and will be expanded in future versions to include broader gene and tissue coverage.
 
----
+The dataset reduces preprocessing overhead by providing standardized expression matrices, harmonized annotations, and quality-controlled data suitable for machine learning, visualization, and downstream bioinformatics analysis.
 
-## **Features**
-- Upload raw read counts and select gene IDs and tissues directly in the interface  
-- Automated robust normalization using TMM + CPM  
-- Batch correction using SVA  
-- Clean visualizations and downloadable expression matrices  
-- No installation required — everything runs in the cloud  
-- Built-in feedback portal for user suggestions
+The dataset is **normalized and batch-corrected using dataset-adaptive logic**, ensuring consistency across tissues and experimental conditions while preserving biological signal.
+
+This resource is designed to support reproducible academic research and data-driven biological discovery.
 
 ---
 
-## **How to Use**
-1. Visit **https://multi-tissue-rnaseq.lovable.app/**
-2. Upload your raw expression data and metadata files
-3. Choose tissues and provide your genes of interest
-4. Run preprocessing and download your outputs
-5. Provide feedback inside the app to help improve the platform
+
+## Dataset Access
+
+- **Zenodo DOI:** https://doi.org/10.5281/zenodo.20668195  
+- **Direct download (Zenodo download link):**  
+  https://zenodo.org/api/records/20668195/draft/files-archive  
+- **Interactive analysis platform:**  
+  https://appfeedai.bio/
+---
+
+## Data Description
+
+This v1 release includes a curated subset of GTEx gene expression data with:
+
+- Gene-level expression values (pilot subset)
+- Harmonized gene identifiers
+- Multi-tissue structured format (limited coverage in v1)
+- Sample-level organization
+- Processed expression matrix for downstream analysis
 
 ---
 
-## Demo Video
+## Data Processing Pipeline
 
-Check out the demo of the Multi-tissue RNA-seq Analyser:
 
-[Watch the demo video](https://github.com/dhana2403/GTEx_Pro/blob/main/images/Multitissue%20analyser.mp4)
+## Features
 
----
+- Curated multi-tissue gene expression data derived from GTEx  
+- Standardized gene identifiers and tissue annotations  
+- Quality-controlled, research-ready format  
+- Normalized and batch-corrected using dataset-adaptive logic  
+- Optimized for machine learning, visualization, and downstream analysis  
+- Compatible with GTEx Pro analysis workflows  
+- Designed to improve reproducibility across studies  
 
-## **Citation**
-If you use GTEx Pro for academic work, please cite:
-
-> Jothi, D. *GTEx Pro enables accurate multi-tissue gene expression analysis using robust normalization and batch correction.* Sci Rep 15, 32684 (2025). https://doi.org/10.1038/s41598-025-20697-0.
-
----
-
-## **License / Usage Restrictions**
-- Free for **academic research use** for limited set of analysis
-- Redistribution or modification for **commercial purposes is strictly prohibited**
+> ⚠️ This is an initial pipeline version and will evolve in future releases.
 
 ---
 
-## **Important Note**
-All pipeline code has been removed from this repository.  
-The **webapp is now the only supported interface** for running GTEx Pro analysis.
+## Intended Use
 
-To request new features or report bugs, please use the feedback option inside the webapp.
+This dataset is suitable for:
+
+- Multi-tissue gene expression analysis
+- Machine learning model development and benchmarking
+- Gene expression visualization
+- Bioinformatics method prototyping
+- Exploratory data analysis
 
 ---
 
+## Limitations
+
+- Pilot-scale gene coverage (not full GTEx transcriptome)
+- Limited tissue representation in v1
+- Not intended for clinical or diagnostic use
+
+Future versions will expand gene and tissue coverage.
+
+---
+
+## License
+
+This dataset is released under:
+
+**Creative Commons Attribution 4.0 International (CC BY 4.0)**
+
+You are free to:
+- Share and redistribute
+- Adapt and build upon
+- Use commercially or academically
+
+**Condition:** Proper attribution is required.
+
+---
+
+## Citation
+
+If you use this dataset, please cite:
+
+```bibtex
+@dataset{feed_gtex_v1_2026,
+  author    = {Dhanalakshmi Jothi},
+  title     = {FEED-Curated GTEx Dataset (v1 - Pilot Release)},
+  publisher = {FEED AI},
+  year      = {2026},
+  version   = {v1},
+  doi       = {10.5281/zenodo.20668195}
+}
 
 
